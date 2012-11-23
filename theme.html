@@ -2,13 +2,311 @@
 <!-- Theme by Jonathon Kresner (http://www.kresner.com/) for Tumblr | version 1.1 -->
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{block:SearchPage}Search results for: {SearchQuery} | {/block:SearchPage}{block:IndexPage}{Title}{/block:IndexPage}{block:PostSummary}{PostSummary}{/block:PostSummary}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    <link rel="shortcut icon" href="{Favicon}" />
+    <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    
+     <!-- DEFAULT VARIABLES -->
+    <meta name="text:Header Font Size" content="50px"/>
+    <meta name="color:Background" content="#1B1C1F"/>
+    <meta name="color:Border" content="#000000"/>
+    <meta name="color:Link" content="#A33446"/>
+    <meta name="image:Header" content=""/>
+    <meta name="if:Show About Widget" content="1"/>
+    <meta name="if:Show Stuff I Like Widget" content="1"/>
+    <meta name="if:Show Latest Tweets Widget" content="0"/>
+    <meta name="if:Show People I Follow Widget" content="1"/>
+    <meta name="if:Show Share This Post Links" content="0"/>
+    <meta name="text:Number of Tweets" content="3"/>
+    <meta name="text:Google Analytics ID" content="" />
+    <meta name="text:Disqus Shortname" content="" />   
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css">    
+    <style type="text/css" media="screen">
+      .page-header blockquote { font-size:34px;font-style:italic }
+      .page-header iframe { position:relative;top:5px }
+      
+      ul.follow { margin:10px 0 0 0 }
+      ul.follow li { display:inline-block;border:none }
+      ul.follow li a { border:none }
+      ul.follow li img { border:none }
+
+      article { border:1px solid #DDDDDD;border-radius: 4px 4px 4px 4px;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);margin-bottom:30px;padding:20px 20px 0; }
+article footer { border-color:#EEEEEE;border-top:1px solid #EEEEEE;clear: both;margin-top:20px;padding: 15px 0 }
+article footer ul li { color:#999999 }
+article footer ul li a { color:#999999 }
+article footer ul li i { opacity:0.5 }
+article footer ul li:hover a { color:#000000 }
+article footer ul li:hover i { opacity:1 }
+article footer .btn-group .btn a { color:#999999 }
+article footer .btn-group .btn i { opacity:0.5 }
+article footer .btn-group .btn:hover a { color:#000000 }
+article footer .btn-group .btn:hover i { opacity:1 }
+article footer ul { list-style-type:none;margin:0 }
+article footer ul.btn-group { float:right;margin-top:-5px }
+article footer ul li { display:inline-block }
+article footer ul li.share { }
+article footer ul li:first-child { float:none }
+article footer ul li a:hover { text-decoration:none }
+article section ul.tags { margin:20px 0 -10px;padding:0; }
+article section ul.tags li { display:inline-block;margin-bottom:5px;padding:2px 5px }
+article section ul.tags li:first-child { float:none;margin-right:5px }
+article section ul.tags li a { color:#FFFFFF;font-weight:normal }
+article section ul.tags li a:hover { text-decoration:none }
+article section ul.tags li:first-child { color:#999999 }
+article section ul.tags li:first-child a { color:#999999 }
+article section ul.tags li:first-child i { opacity:0.5 }
+.share_links_wrapper { display:none;left: 74px;position: absolute;top: -15px;z-index:100 }
+.share_links_wrapper a.share_this_over { bottom: 8px;display:block;position: absolute;right:8px }
+.share_links { background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);display:block;height:120px;left:-143px;padding:2px;position:absolute;top:-120px;width:200px;z-index:100 }
+
+    </style>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
+<div class="container">
+  <div class="page-header">
+     <blockquote>"Adventure is worthwhile in itself"</blockquote>
+     <p>I blog to remember things and connect with like minded <a href="/what-is-a-hackerpreneur">hacker-entrepreneurs</a>. <a href="mailto:jkresner@gmail.com">Write me</a> or <a href="https://twitter.com/hackerpreneur" class="twitter-follow-button" data-show-count="false">Follow @hackerpreneur</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p> 
+  </div>
+  
+  <div class="row">
+  
+  <div class="span9">
+  
+        <ol id="posts">
+            {block:Posts}
+                {block:Text}
+ <article class="link clearfix" id="post_{PostID}" data-postID="{PostID}" data-permalink="{Permalink}" data-date="{Timestamp}">
+          
+          <header>
+            {block:Title}<h2><a href="{Permalink}" {Target}>{Title}</a></h2>
+          {/block:Title}
+</header>
+           <section>{Body}
+               {block:HasTags} 
+              <ul class="tags">
+              <li class="tag-label"><i class="icon-tag"></i> Tags:</li>
+              {block:Tags}              
+              <li class="label"><a href="{TagURL}">{Tag}</a></li>
+              {/block:Tags}
+            </ul>
+            {/block:HasTags}
+            
+            
+          </section>
+             <footer>       
+            <ul class="meta">
+            <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
+            </footer>
+            </article>
+                 
+                {/block:Text}
+
+                {block:Photo}
+                    <li class="post photo">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Photo}
+
+                {block:Photoset}
+                    <li class="post photoset">
+                        {Photoset-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Photoset}
+
+                {block:Quote}
+                    <li class="post quote">
+                        "{Quote}"
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
+                    </li>
+                {/block:Quote}
+
+                {block:Link}
+                    <article class="link clearfix" id="post_{PostID}" data-postID="{PostID}" data-permalink="{Permalink}" data-date="{Timestamp}">
+          
+          <header>
+            <h3>Notes: <a href="{Permalink}">{Name}</a></h3>
+            <h4>Below is a summary. For full detail <a href="{URL}" target="_blank">open the ORIGINAL link</a></h4>
+          </header>
+          <section>
+            {block:Description}
+                <div class="description">{Description}</div>
+            {/block:Description}            
+
+            {block:HasTags} 
+              <ul class="tags">
+              <li class="tag-label"><i class="icon-tag"></i> Tags:</li>
+              {block:Tags}              
+              <li class="label"><a href="{TagURL}">{Tag}</a></li>
+              {/block:Tags}
+            </ul>
+            {/block:HasTags}
+            
+            
+          </section>
+
+          
+          <footer>       
+            <ul class="meta">
+            <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
+              <!--<ul class="btn-group">
+                
+                <li class="share btn btn-small"><a href="#"><i class="icon-share"></i> Share</a>
+                  <div class="share_links_wrapper">
+                    <div class="share_links">    
+                      <div class="share_links_twitter" data-permalink="http://bootstrap-theme.tumblr.com/post/18507899934/bootstrap-from-twitter" data-twitterusername="stylehatch"></div>
+                      <div class="share_links_facebook" data-permalink="http%3A%2F%2Fbootstrap-theme.tumblr.com%2Fpost%2F18507899934%2Fbootstrap-from-twitter"></div>
+                      <div class="share_links_google" data-permalink="http://bootstrap-theme.tumblr.com/post/18507899934/bootstrap-from-twitter"></div>
+                      <input type="text" value="http://tmblr.co/ZcGVqvHFA2GU" class="short_url_text" readonly="">
+                    </div>
+                  </div>
+                </li>
+                <li class="notes btn btn-small"><a href="http://bootstrap-theme.tumblr.com/post/18507899934/bootstrap-from-twitter#notes"><i class="icon-heart"></i> 0</a></li>
+                <li class="comments btn btn-small"><i class="icon-comment"></i> <a href="http://bootstrap-theme.tumblr.com/post/18507899934/bootstrap-from-twitter#disqus_thread" class="dsq-comment-count">&nbsp;</a></li>
+              </ul>
+              -->
+            </footer>
+        
+        </article>
+                {/block:Link}
+
+                {block:Chat}
+                    <li class="post chat">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}
+
+                                    {Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </li>
+                {/block:Chat}
+
+                {block:Video}
+                    <li class="post video">
+                        {Video-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Video}
+
+                {block:Audio}
+                    <li class="post audio">
+                        {AudioPlayerBlack}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Audio}
+            {/block:Posts}
+        </ol>
+
+        <p id="footer">
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&#171; Previous</a>
+            {/block:PreviousPage}
+
+            {block:NextPage}
+                <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+
+            <a href="/archive">Archive</a>
+        </p>
+  
+  </div>
+  
+  <aside class="span3">
+      <div class="well">
+      
+        <h1>{Title}</h1>
+
+        <p>Diary of a <a href="/what-is-a-hackerpreneur">Hackerpreneur</a></p>
+      <!--{block:Description}
+        <p id="description">{Description}</p>
+      {/block:Description}-->
+
+      {block:IfHeaderImage}<a href="/"><img src="{image:Header}" alt="{Title}" /></a>{/block:IfHeaderImage}
+
+      
+      <a href="/" class="btn btn-info">Home</a>
+        <a href="mailto:jkresner@gmail.com" class="btn btn-warning">Email me</a>
+      
+      </div>
+
+      <div class="well">
+        <ul class="follow">
+        <li><a href="http://jonathonkresner.tumblr.com/rss"><img
+        src="http://nathantotten.files.wordpress.com/2011/12/rss.png" alt="RSS
+        Feed"></a></li>
+        <li><a href="http://www.twitter.com/hackerpreneur"><img
+        src="http://nathantotten.files.wordpress.com/2011/12/twitter-2.png"
+        alt="Twitter"></a></li>
+        <li><a href="http://www.github.com/jkresner"><img
+        src="http://nathantotten.files.wordpress.com/2011/12/github.png"
+        alt="Github"></a></li>
+        <li><a href="http://stackoverflow.com/users/178211/jonathon-kresner"><img
+        src="http://nathantotten.files.wordpress.com/2011/12/stackoverflow.png"
+        alt="Stackoverflow">< /a></li>
+        <li><a href="http://www.linkedin.com/in/jonathonkresner"><img
+        src="http://nathantotten.files.wordpress.com/2011/12/linkedin.png"
+        alt="LinkedIn"></a></li>
+        </ul>
+      </div>
+
+      <div class="well">
+        <div id="pages">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            {block:HasPages}{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}{/block:HasPages}
+                            {block:AskEnabled}<li class="ask"><a href="/ask" class="page">{AskLabel}</a></li>{/block:AskEnabled}
+                            {block:SubmissionsEnabled}<li class="submit"><a href="/submit" class="page">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+                            <li class="mobile"><a href="/mobile">Mobile</a></li>
+                            <li class="rss"><a href="{RSS}">RSS</a></li>
+                        </ul>
+                    </div><!-- #pages -->
+                    <div id="search">
+                        <form action="/search" method="get">
+                            <input type="text" name="q" value="{SearchQuery}" class="search-text" />
+                            <input type="submit" value="Search" class="search-submit" />
+                        </form>
+                    </div><!-- #search -->
+      </div>
+
+
+  </aside>
+  
+  </div>
+</div>  
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    
+    {block:IfGoogleAnalyticsID}<script type="text/javascript">var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try{var pageTracker=_gat._getTracker("{text:Google Analytics ID}");pageTracker._trackPageview()}catch(err){}</script>{block:IfGoogleAnalyticsID}
   </body>
 </html>
