@@ -88,7 +88,11 @@ article section ul.tags li:first-child i { opacity:0.5 }
           {/block:Title}
 </header>
            <section>{Body}
-               {block:HasTags} 
+            
+            
+            
+            
+            {block:HasTags} 
               <ul class="tags">
               <li class="tag-label"><i class="icon-tag"></i> Tags:</li>
               {block:Tags}              
@@ -98,14 +102,25 @@ article section ul.tags li:first-child i { opacity:0.5 }
             {/block:HasTags}
             
             
+            
+            
+            
           </section>
-             <footer>       
+            
+            
+            <footer>       
+            <div style="float:right">
+            <span st_url='{Permalink}' st_title='{Title}' class='st_twitter_large' displayText='Tweet' st_via="hackerpreneur"></span><span st_url='{Permalink}' st_title='{Title}' class='st_facebook_large' displayText='Facebook'></span><span st_url='{Permalink}' st_title='{Title}' class='st_linkedin_large' displayText='LinkedIn'></span><span st_url='{Permalink}' st_title='{Title}' class='st_pinterest_large' displayText='Pinterest'></span><span st_url='{Permalink}' st_title='{Title}' class='st_tumblr_large' displayText='Tumblr'></span><span st_url='{Permalink}' st_title='{Title}' class='st_googleplus_large' displayText='Google  '></span><span st_url='{Permalink}' st_title='{Title}' class='st_email_large' displayText='Email'></span>
+            </div>
+            
             <ul class="meta">
               <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
+
+              
           </ul>
             </footer>
             
-            
+            <br /><br /><br />
             {block:IfDisqusShortname}{block:Permalink}
                         <div id="disqus_thread"></div>
                         <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
@@ -321,6 +336,8 @@ article section ul.tags li:first-child i { opacity:0.5 }
 </div>  
     <script src="//code.jquery.com/jquery-latest.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'7c943c57-e0bf-449a-bc16-0223ac5d9a62'});</script>
     
     {block:IfGoogleAnalyticsID}<script type="text/javascript">var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try{var pageTracker=_gat._getTracker("{text:Google Analytics ID}");pageTracker._trackPageview()}catch(err){}</script>{block:IfGoogleAnalyticsID}
   </body>
