@@ -104,6 +104,16 @@ article section ul.tags li:first-child i { opacity:0.5 }
               <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
           </ul>
             </footer>
+            
+            
+            {block:IfDisqusShortname}{block:Permalink}
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+                        <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+                    {/block:Permalink}{/block:IfDisqusShortname}
+                    {block:PostNotes}<div id="post-notes">{PostNotes}</div>{/block:PostNotes}
+            
+            
             </article>
                  
                 {/block:Text}
