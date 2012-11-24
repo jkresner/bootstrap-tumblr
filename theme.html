@@ -80,55 +80,17 @@ article section ul.tags li:first-child i { opacity:0.5 }
   
         <ol id="posts">
             {block:Posts}
-                {block:Text}
+            
  <article class="link clearfix" id="post_{PostID}" data-postID="{PostID}" data-permalink="{Permalink}" data-date="{Timestamp}">
-          
+ 
+ 
+                {block:Text}         
           <header>
             {block:Title}<h2><a href="{Permalink}" {Target}>{Title}</a></h2>
           {/block:Title}
 </header>
-           <section>{Body}
+           <section>{Body}</section>
             
-            
-            
-            
-            {block:HasTags} 
-              <ul class="tags">
-              <li class="tag-label"><i class="icon-tag"></i> Tags:</li>
-              {block:Tags}              
-              <li class="label"><a href="{TagURL}">{Tag}</a></li>
-              {/block:Tags}
-            </ul>
-            {/block:HasTags}
-            
-            
-            
-            
-            
-          </section>
-            
-            
-            <footer>       
-            <div style="float:right">
-            <span st_url='{Permalink}' st_title='{Title}' class='st_twitter_large' displayText='Tweet' st_via="hackerpreneur"></span><span st_url='{Permalink}' st_title='{Title}' class='st_facebook_large' displayText='Facebook'></span><span st_url='{Permalink}' st_title='{Title}' class='st_linkedin_large' displayText='LinkedIn'></span><span st_url='{Permalink}' st_title='{Title}' class='st_pinterest_large' displayText='Pinterest'></span><span st_url='{Permalink}' st_title='{Title}' class='st_tumblr_large' displayText='Tumblr'></span><span st_url='{Permalink}' st_title='{Title}' class='st_googleplus_large' displayText='Google  '></span><span st_url='{Permalink}' st_title='{Title}' class='st_email_large' displayText='Email'></span>
-            </div>
-            
-            <ul class="meta">
-              <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
-
-              
-          </ul>
-            </footer>
-            
-            <br /><br /><br />
-            {block:IfDisqusShortname}{block:Permalink}
-                        <div id="disqus_thread"></div>
-                        <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-                        <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
-                    {/block:Permalink}{/block:IfDisqusShortname}
-                    
-            
-            </article>
                  
                 {/block:Text}
 
@@ -163,8 +125,7 @@ article section ul.tags li:first-child i { opacity:0.5 }
                 {/block:Quote}
 
                 {block:Link}
-                    <article class="link clearfix" id="post_{PostID}" data-postID="{PostID}" data-permalink="{Permalink}" data-date="{Timestamp}">
-          
+       
           <header>
             <h3>Notes: <a href="{Permalink}">{Name}</a></h3>
             <h4>Below is a summary. For full detail <a href="{URL}" target="_blank">open the ORIGINAL link</a></h4>
@@ -174,46 +135,9 @@ article section ul.tags li:first-child i { opacity:0.5 }
                 <div class="description">{Description}</div>
             {/block:Description}            
 
-            {block:HasTags} 
-              <ul class="tags">
-              <li class="tag-label"><i class="icon-tag"></i> Tags:</li>
-              {block:Tags}              
-              <li class="label"><a href="{TagURL}">{Tag}</a></li>
-              {/block:Tags}
-            </ul>
-            {/block:HasTags}
-            
-            
           </section>
-
-          
-          <footer>       
-            <ul class="meta">
-              <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
-            </ul>
-
+                
               
-              <!--
-                
-              <ul class="btn-group">
-                
-                <li class="share btn btn-small"><a href="#"><i class="icon-share"></i> Share</a>
-                  <div class="share_links_wrapper">
-                    <div class="share_links">    
-                      <div class="share_links_twitter" data-permalink="http://bootstrap-theme.tumblr.com/post/18507899934/bootstrap-from-twitter" data-twitterusername="stylehatch"></div>
-                      <div class="share_links_facebook" data-permalink="http%3A%2F%2Fbootstrap-theme.tumblr.com%2Fpost%2F18507899934%2Fbootstrap-from-twitter"></div>
-                      <div class="share_links_google" data-permalink="http://bootstrap-theme.tumblr.com/post/18507899934/bootstrap-from-twitter"></div>
-                      <input type="text" value="http://tmblr.co/ZcGVqvHFA2GU" class="short_url_text" readonly="">
-                    </div>
-                  </div>
-                </li>
-                <li class="notes btn btn-small"><a href="http://bootstrap-theme.tumblr.com/post/18507899934/bootstrap-from-twitter#notes"><i class="icon-heart"></i> 0</a></li>
-                <li class="comments btn btn-small"><i class="icon-comment"></i> <a href="http://bootstrap-theme.tumblr.com/post/18507899934/bootstrap-from-twitter#disqus_thread" class="dsq-comment-count">&nbsp;</a></li>
-              </ul>
-              -->            
-            </footer>
-        
-        </article>
                 {/block:Link}
 
                 {block:Chat}
@@ -255,6 +179,57 @@ article section ul.tags li:first-child i { opacity:0.5 }
                         {/block:Caption}
                     </li>
                 {/block:Audio}
+
+<section>
+            
+        {block:HasTags} 
+              <ul class="tags">
+              <li class="tag-label"><i class="icon-tag"></i> Tags:</li>
+              {block:Tags}              
+              <li class="label"><a href="{TagURL}">{Tag}</a></li>
+              {/block:Tags}
+            </ul>
+            {/block:HasTags}
+
+    
+</section>
+
+             <footer>       
+
+
+<div style="float:right">
+ 
+                 {block:Text}  
+ <span st_url='{Permalink}' st_title='{Title}' class='st_twitter_large' displayText='Tweet' st_via="hackerpreneur"></span><span st_url='{Permalink}' st_title='{Title}' class='st_tumblr_large' displayText='Tumblr'></span><span st_url='{Permalink}' st_title='{Title}' class='st_facebook_large' displayText='Facebook'></span><span st_url='{Permalink}' st_title='{Title}' class='st_linkedin_large' displayText='LinkedIn'></span><span st_url='{Permalink}' st_title='{Title}' class='st_googleplus_large' displayText='Google  '></span><span st_url='{Permalink}' st_title='{Title}' class='st_reddit_large' displayText='Reddit'></span><span st_url='{Permalink}' st_title='{Title}' class='st_email_large' displayText='Email'></span><span st_url='{Permalink}' st_title='{Title}' class='st_pinterest_large' displayText='Pinterest'></span>
+  {/block:Text}
+
+
+                 {block:Link}  
+ <span st_url='{Permalink}' st_title='{Name}' class='st_twitter_large' displayText='Tweet' st_via="hackerpreneur"></span><span st_url='{Permalink}' st_title='{Name}' class='st_tumblr_large' displayText='Tumblr'></span><span st_url='{Permalink}' st_title='{Name}' class='st_facebook_large' displayText='Facebook'></span><span st_url='{Permalink}' st_title='{Name}' class='st_linkedin_large' displayText='LinkedIn'></span><span st_url='{Permalink}' st_title='{Name}' class='st_googleplus_large' displayText='Google  '></span><span st_url='{Permalink}' st_title='{Name}' class='st_reddit_large' displayText='Reddit'></span><span st_url='{Permalink}' st_title='{Name}' class='st_email_large' displayText='Email'></span><span st_url='{Permalink}' st_title='{Name}' class='st_pinterest_large' displayText='Pinterest'></span>
+  {/block:Link}
+    
+</div>
+            
+            <ul class="meta">
+              <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
+
+              
+          </ul>
+          
+            <br /><br /><br />
+            {block:IfDisqusShortname}{block:Permalink}
+                        <div id="disqus_thread"></div>
+                        <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+                        <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+                    {/block:Permalink}{/block:IfDisqusShortname}
+          
+          
+            </footer>
+            
+                    
+            
+            </article>               
+                
             {/block:Posts}
         </ol>
 
@@ -337,7 +312,7 @@ article section ul.tags li:first-child i { opacity:0.5 }
     <script src="//code.jquery.com/jquery-latest.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
     
-    <script type="text/javascript">var switchTo5x=true;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'7c943c57-e0bf-449a-bc16-0223ac5d9a62'});</script>
+    <script type="text/javascript">var switchTo5x=false;</script><script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'7c943c57-e0bf-449a-bc16-0223ac5d9a62'});</script>
     
     {block:IfGoogleAnalyticsID}<script type="text/javascript">var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try{var pageTracker=_gat._getTracker("{text:Google Analytics ID}");pageTracker._trackPageview()}catch(err){}</script>{block:IfGoogleAnalyticsID}
   </body>
