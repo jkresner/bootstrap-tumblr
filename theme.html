@@ -71,156 +71,137 @@
 <div class="container">
 
   <div class="page-header">
-     <blockquote><a href="/" style="font-family:courier">Hackerpreneurialsm</a> === Coding + Distribution;</blockquote>
+     <blockquote><a href="/" title="hackerpreneur, hackerpreneurialism">Hackerpreneurialsm</a> === Coding + Distribution;</blockquote>
   </div>
 
   <div class="row">
 
   <div class="span9">
 
-        <ol id="posts">
-            {block:Posts}
+    <ol id="posts">
+      {block:Posts}
 
- <article class="link clearfix" id="post_{PostID}" data-postID="{PostID}" data-permalink="{Permalink}" data-date="{Timestamp}">
+      <article class="link clearfix" id="post_{PostID}" data-postID="{PostID}" data-permalink="{Permalink}" data-date="{Timestamp}">
+
+      {block:Text}
+        <header>
+          {block:Title}<h2><a href="{Permalink}" {Target}>{Title}</a></h2>{/block:Title}
+        </header>
+        <section>{Body}</section>
+      {/block:Text}
+
+      {block:Photo}
+        <h2>{Title}</h2>
+        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+        {block:Caption} <div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Photo}
+
+      {block:Photoset}
+        {Photoset-500}
+
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Photoset}
+
+      {block:Quote}
+        "{Quote}"
+
+        {block:Source}<div class="source">{Source}</div> {/block:Source}
+      {/block:Quote}
+
+      {block:Link}
+
+        <header>
+          <h3>Notes: <a href="{Permalink}">{Name}</a></h3>
+          <h4><a href="{URL}" target="_blank">{URL}</a></h4>
+        </header>
+        <section>
+          {block:Description}<div class="description">{Description}</div> {/block:Description}
+        </section>
+
+      {/block:Link}
+
+      {block:Chat}
+        {block:Title}
+            <h3><a href="{Permalink}">{Title}</a></h3>
+        {/block:Title}
+
+        <ul class="chat">
+          {block:Lines}
+            <li class="{Alt} user_{UserNumber}">
+              {block:Label}<span class="label">{Label}</span> {/block:Label}
+
+              {Line}
+            </li>
+          {/block:Lines}
+        </ul>
+      {/block:Chat}
+
+      {block:Video}
+        <h2>{Title}</h2>
+        {Video-500}
+
+        {block:Caption}<div class="caption">{Caption}</div> {/block:Caption}
+      {/block:Video}
+
+      {block:Audio}
+         <h3>Track: {block:TrackName} {TrackName} {/block:TrackName}</h3>
+
+        {AudioPlayerGrey}
+
+        {block:Caption}<div class="caption">{Caption}</div>{/block:Caption}
+      {/block:Audio}
 
 
-                {block:Text}
-          <header>
-            {block:Title}<h2><a href="{Permalink}" {Target}>{Title}</a></h2>
-          {/block:Title}
-</header>
-           <section>{Body}</section>
-
-
-                {/block:Text}
-
-                {block:Photo}
-                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                {/block:Photo}
-
-                {block:Photoset}
-                        {Photoset-500}
-
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                {/block:Photoset}
-
-                {block:Quote}
-                        "{Quote}"
-
-                        {block:Source}
-                            <div class="source">{Source}</div>
-                        {/block:Source}
-                {/block:Quote}
-
-                {block:Link}
-
-          <header>
-            <h3>Notes: <a href="{Permalink}">{Name}</a></h3>
-            <h4>Below is a summary. For full detail <a href="{URL}" target="_blank">open the ORIGINAL link</a></h4>
-          </header>
-          <section>
-            {block:Description}
-                <div class="description">{Description}</div>
-            {/block:Description}
-
-          </section>
-
-
-                {/block:Link}
-
-                {block:Chat}
-                        {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
-                        {/block:Title}
-
-                        <ul class="chat">
-                            {block:Lines}
-                                <li class="{Alt} user_{UserNumber}">
-                                    {block:Label}
-                                        <span class="label">{Label}</span>
-                                    {/block:Label}
-
-                                    {Line}
-                                </li>
-                            {/block:Lines}
-                        </ul>
-                {/block:Chat}
-
-                {block:Video}
-                        {Video-500}
-
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                {/block:Video}
-
-                {block:Audio}
-                   <h3>Track: {block:TrackName} {TrackName} {/block:TrackName}</h3>
-
-       {AudioPlayerGrey}
-
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}
-                {/block:Audio}
-
-<section>
+      <section>
 
         {block:HasTags}
-              <ul class="tags">
-              <li class="tag-label"><i class="icon-tag"></i> Tags:</li>
-              {block:Tags}
-              <li class="label"><a href="{TagURL}">{Tag}</a></li>
-              {/block:Tags}
-            </ul>
-            {/block:HasTags}
-
-
-</section>
-
-             <footer>
-
-
-<div style="float:right">
-
-                 {block:Text}
- <span st_url='{Permalink}' st_title='{Title}' class='st_twitter_large' displayText='Tweet' st_via="hackerpreneur"></span><span st_url='{Permalink}' st_title='{Title}' class='st_tumblr_large' displayText='Tumblr'></span><span st_url='{Permalink}' st_title='{Title}' class='st_facebook_large' displayText='Facebook'></span><span st_url='{Permalink}' st_title='{Title}' class='st_linkedin_large' displayText='LinkedIn'></span><span st_url='{Permalink}' st_title='{Title}' class='st_googleplus_large' displayText='Google  '></span><span st_url='{Permalink}' st_title='{Title}' class='st_reddit_large' displayText='Reddit'></span><span st_url='{Permalink}' st_title='{Title}' class='st_email_large' displayText='Email'></span><span st_url='{Permalink}' st_title='{Title}' class='st_pinterest_large' displayText='Pinterest'></span>
-  {/block:Text}
-
-
-                 {block:Link}
- <span st_url='{Permalink}' st_title='{Name}' class='st_twitter_large' displayText='Tweet' st_via="hackerpreneur"></span><span st_url='{Permalink}' st_title='{Name}' class='st_tumblr_large' displayText='Tumblr'></span><span st_url='{Permalink}' st_title='{Name}' class='st_facebook_large' displayText='Facebook'></span><span st_url='{Permalink}' st_title='{Name}' class='st_linkedin_large' displayText='LinkedIn'></span><span st_url='{Permalink}' st_title='{Name}' class='st_googleplus_large' displayText='Google  '></span><span st_url='{Permalink}' st_title='{Name}' class='st_reddit_large' displayText='Reddit'></span><span st_url='{Permalink}' st_title='{Name}' class='st_email_large' displayText='Email'></span><span st_url='{Permalink}' st_title='{Name}' class='st_pinterest_large' displayText='Pinterest'></span>
-  {/block:Link}
-
-</div>
-
-            <ul class="meta">
-              <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
-
-
+          <ul class="tags">
+            <li class="tag-label"><i class="icon-tag"></i> Tags:</li>
+            {block:Tags}
+            <li class="label"><a href="{TagURL}">{Tag}</a></li>
+            {/block:Tags}
           </ul>
+        {/block:HasTags}
 
-            <br /><br /><br />
-            {block:IfDisqusShortname}{block:Permalink}
-                        <div id="disqus_thread"></div>
-                        <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-                        <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
-                    {/block:Permalink}{/block:IfDisqusShortname}
+      </section>
 
 
-            </footer>
+      <footer>
+
+        <div style="float:right">
+
+          {block:Text}
+ <span st_url='{Permalink}' st_title='{Title}' class='st_twitter_large' displayText='Tweet' st_via="hackerpreneur"></span><span st_url='{Permalink}' st_title='{Title}' class='st_tumblr_large' displayText='Tumblr'></span><span st_url='{Permalink}' st_title='{Title}' class='st_facebook_large' displayText='Facebook'></span><span st_url='{Permalink}' st_title='{Title}' class='st_linkedin_large' displayText='LinkedIn'></span><span st_url='{Permalink}' st_title='{Title}' class='st_googleplus_large' displayText='Google  '></span><span st_url='{Permalink}' st_title='{Title}' class='st_reddit_large' displayText='Reddit'></span><span st_url='{Permalink}' st_title='{Title}' class='st_email_large' displayText='Email'></span><span st_url='{Permalink}' st_title='{Title}' class='st_pinterest_large' displayText='Pinterest'></span>
+          {/block:Text}
+
+
+          {block:Link}
+ <span st_url='{Permalink}' st_title='{Name}' class='st_twitter_large' displayText='Tweet' st_via="hackerpreneur"></span><span st_url='{Permalink}' st_title='{Name}' class='st_tumblr_large' displayText='Tumblr'></span><span st_url='{Permalink}' st_title='{Name}' class='st_facebook_large' displayText='Facebook'></span><span st_url='{Permalink}' st_title='{Name}' class='st_linkedin_large' displayText='LinkedIn'></span><span st_url='{Permalink}' st_title='{Name}' class='st_googleplus_large' displayText='Google  '></span><span st_url='{Permalink}' st_title='{Name}' class='st_reddit_large' displayText='Reddit'></span><span st_url='{Permalink}' st_title='{Name}' class='st_email_large' displayText='Email'></span><span st_url='{Permalink}' st_title='{Name}' class='st_pinterest_large' displayText='Pinterest'></span>
+          {/block:Link}
+
+        </div>
+
+
+        <ul class="meta">
+          <li class="time"><a href="{Permalink}"><i class="icon-time"></i> {TimeAgo}</a></li>
+        </ul>
+
+        <br /><br /><br />
+
+        {block:IfDisqusShortname}{block:Permalink}
+        <div id="disqus_thread"></div>
+        <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+        <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">View the discussion thread.</a></noscript>
+        {/block:Permalink}{/block:IfDisqusShortname}
+
+
+      </footer>
 
 
 
-            </article>
+      </article>
 
-            {/block:Posts}
+    {/block:Posts}
         </ol>
 
         <p id="footer">
