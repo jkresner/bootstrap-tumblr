@@ -28,7 +28,9 @@
     <style type="text/css" media="screen">
       .page-header blockquote { font-size:28px;font-family:courier; }
 
-      #about h1 { font-size:20px }
+      #about h1 { font-size:20px;padding-top:0;margin-top:0 }
+      #about .well { padding:14px; }
+
       ul.follow { margin:10px 0 0 0 }
       ul.follow li { display:inline-block;border:none }
       ul.follow li a { border:none }
@@ -111,7 +113,7 @@
       {block:Link}
 
         <header>
-          <h3>Notes: <a href="{Permalink}">{Name}</a></h3>
+          <h3><a href="{Permalink}">{Name}</a></h3>
           <h4><a href="{URL}" target="_blank">{URL}</a></h4>
         </header>
         <section>
@@ -121,9 +123,7 @@
       {/block:Link}
 
       {block:Chat}
-        {block:Title}
-            <h3><a href="{Permalink}">{Title}</a></h3>
-        {/block:Title}
+        {block:Title}<h3><a href="{Permalink}">{Title}</a></h3> {/block:Title}
 
         <ul class="chat">
           {block:Lines}
@@ -137,7 +137,7 @@
       {/block:Chat}
 
       {block:Video}
-        <h2>{Title}</h2>
+        {block:Title}<h2>{Title}</h2>{/block:Title}
         {Video-500}
 
         {block:Caption}<div class="caption">{Caption}</div> {/block:Caption}
@@ -219,45 +219,55 @@
   </div>
 
   <aside id="about" class="span3">
-      <div class="well">
+    <div class="well">
 
-        <h1 style="font-size:16px">{Title}</h1>
+      <h1><a href="/">{Title}</a></h1>
 
-        <a href="https://twitter.com/hackerpreneur" class="twitter-follow-button" data-show-count="false">Follow @hackerpreneur</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-        <p style="padding-top:10px">Diary of a <a href="/what-is-a-hackerpreneur">Hackerpreneur</a></p>
-      <!--{block:Description}
+      {block:Description}
         <p id="description">{Description}</p>
-      {/block:Description}-->
+      {/block:Description}
 
       {block:IfHeaderImage}<a href="/"><img src="{image:Header}" alt="{Title}" /></a>{/block:IfHeaderImage}
+    </div>
 
-
-      <a href="/" class="btn btn-info">Home</a>
-        <a href="mailto:jkresner@gmail.com" class="btn btn-warning">Email me</a>
-
-      </div>
-
-      <div class="well">
-        <ul class="follow">
-        <li><a href="http://jonathonkresner.tumblr.com/rss"><img
-        src="http://nathantotten.files.wordpress.com/2011/12/rss.png" alt="RSS
-        Feed"></a></li>
-        <li><a href="http://www.twitter.com/hackerpreneur"><img
+    <div class="well">
+      <ul class="follow">
+        <li><a href="http://www.twitter.com/hackerpreneur" target="_blank"><img
         src="http://nathantotten.files.wordpress.com/2011/12/twitter-2.png"
         alt="Twitter"></a></li>
-        <li><a href="http://www.github.com/jkresner"><img
+        <li><a href="http://www.github.com/jkresner" target="_blank"><img
         src="http://nathantotten.files.wordpress.com/2011/12/github.png"
         alt="Github"></a></li>
-        <li><a href="http://stackoverflow.com/users/178211/jonathon-kresner"><img
+        <li><a href="http://stackoverflow.com/users/178211/jonathon-kresner" target="_blank"><img
         src="http://nathantotten.files.wordpress.com/2011/12/stackoverflow.png"
         alt="Stackoverflow"></a></li>
-        <li><a href="http://www.linkedin.com/in/jonathonkresner"><img
+        <li><a href="http://www.linkedin.com/in/jonathonkresner" target="_blank"><img
         src="http://nathantotten.files.wordpress.com/2011/12/linkedin.png"
         alt="LinkedIn"></a></li>
-        </ul>
-      </div>
+        <li><a href="http://jonathonkresner.tumblr.com/rss" target="_blank"><img
+        src="http://nathantotten.files.wordpress.com/2011/12/rss.png" alt="RSS
+        Feed"></a></li>
+      </ul>
+    </div>
+
+
+    <div class="well">
+      <h1><a href="http://www.airpair.com/" target="_blank" title="Pair programming, code review, software achitecture">airpair.com</a></h1>
+
+      <p>airpair is my startup. The service is about empowering companies get find real-time help with any software challenge.</p>
+    </div>
+
+
+    <div class="well">
+      <h1><a href="http://www.github.com/jkresner/badass-backbone" target="_blank" title="Backbone.js productivity, testing and base classes">Badass Backbone</a></h1>
+
+      <p>Badass Backbone is a Backbone.js productivity framework I'm working on. It provides a bunch of minimalist abstract base classes that make writing backbone.js quick. It also comes with strategies and guidance on how to test backbone apps.</p>
+    </div>
+
+    <div class="well">
+      <a href="mailto:jkresner@gmail.com" class="btn btn-warning"><i class="icon-envelope"></i> Email me</a>
+    </div>
+
 
 
       <!-- <div class="well">
