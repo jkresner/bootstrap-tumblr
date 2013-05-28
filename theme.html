@@ -31,7 +31,7 @@
       #about h1 { font-size:20px;padding-top:0;margin-top:0 }
       #about .well { padding:14px; }
 
-      ul.follow { margin:10px 0 0 0 }
+      ul.follow { margin:0px 0 15px 0 }
       ul.follow li { display:inline-block;border:none }
       ul.follow li a { border:none }
       ul.follow li img { border:none }
@@ -65,6 +65,9 @@
       .share_links_wrapper { display:none;left: 74px;position: absolute;top: -15px;z-index:100 }
       .share_links_wrapper a.share_this_over { bottom: 8px;display:block;position: absolute;right:8px }
       .share_links { background: none repeat scroll 0 0 #FFFFFF;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);display:block;height:120px;left:-143px;padding:2px;position:absolute;top:-120px;width:200px;z-index:100 }
+
+      .well .icon { float:left;border:solid 1px #d3d3d3; }
+      .well .desc { float:left;margin:-4px 0px 6px 10px;width:180px }
 
     </style>
   </head>
@@ -223,14 +226,8 @@
 
       <h1><a href="/">{Title}</a></h1>
 
-      {block:Description}
-        <p id="description">{Description}</p>
-      {/block:Description}
-
       {block:IfHeaderImage}<a href="/"><img src="{image:Header}" alt="{Title}" /></a>{/block:IfHeaderImage}
-    </div>
 
-    <div class="well">
       <ul class="follow">
         <li><a href="http://www.twitter.com/hackerpreneur" target="_blank"><img
         src="http://nathantotten.files.wordpress.com/2011/12/twitter-2.png"
@@ -248,13 +245,19 @@
         src="http://nathantotten.files.wordpress.com/2011/12/rss.png" alt="RSS
         Feed"></a></li>
       </ul>
+
+      {block:Description}
+        <p id="description">{Description}</p>
+      {/block:Description}
+
     </div>
 
 
     <div class="well">
       <h1><a href="http://www.airpair.com/" target="_blank" title="Pair programming, code review, software achitecture">airpair.com</a></h1>
-
-      <p>airpair is my startup. We aim to empower companies to find real-time help with any software challenge.</p>
+      <img class="icon" src="http://www.airpair.com/images/icons/icon48.png" />
+      <p class="desc">airpair is my startup. We enable companies to find real-time help with any software challenge.</p>
+      <div style="clear:both"></div>
     </div>
 
 
@@ -266,6 +269,8 @@
 
     <div class="well">
       <a href="mailto:jkresner@gmail.com" class="btn btn-warning"><i class="icon-envelope icon-white"></i> Email me</a>
+
+    <div style="clear:both"></div>
     </div>
 
 
